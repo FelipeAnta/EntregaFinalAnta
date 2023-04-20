@@ -1,0 +1,30 @@
+.info{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    align-items: center;
+    color: white;
+}
+.card-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgb(148, 167, 126);
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.name-card{
+    color: white;
+    font-size: 25px;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    border-radius: 20px;
+}
+.card{
+    background-color: rgb(118, 147, 124);
+}

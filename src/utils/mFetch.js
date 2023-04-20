@@ -1,0 +1,16 @@
+let productos =[
+  {id:'0', categoria: 'licor', name:'Jagermeister', stock:20, price:10000,foto:'https://gobar.vteximg.com.br/arquivos/ids/157832-1000-1000/Jagermeister-700-ml-1.000-x-1.000.png?v=637587726480600000', detalle:'Jägermeister es un licor de hierbas endulzado, pero con un toque amargo, el cual tiene 34,5% de contenido alcohólico. Es muy popular en Baja Sajonia en la ciudad de Wolfenbüttel (Alemania). En esta ciudad se encuentra la raíz de la empresa que la comercializa: Mast-Jägermeister SE.'},
+  {id:'1', categoria: 'licor', name:'Gancia', stock:30, price:1500,foto:'https://gobar.vteximg.com.br/arquivos/ids/156378-500-500/GANICA.jpg?v=636716737494030000', detalle:'Americano Gancia es un aperitivo que se caracteriza por la presencia de sabores herbáceos y cítricos que se combinan con los del vino blanco y el alcohol. El sabor amargo de las hierbas se mezcla con el dulzor del azúcar logrando una bebida amable, agradable de beber, equilibrada y de gran personalidad.'},
+  {id:'2', categoria: 'destilado', name:'Bombay', stock:20, price:7000,foto:'https://http2.mlstatic.com/D_NQ_NP_669612-MLA43643320606_102020-O.jpg', detalle:'Tiene un sabor a cítricos maduros con un toque de enebro, combinado con un final elegante, ligero y especiado. Nariz: el caracter perfumado presenta una alineación unificada de enebro, cilantro, limón y notas florales con un corazón más profundo y especiado, y notas subyacentes de madera y hierba seca.'},
+  {id:'3', categoria: 'destilado', name:'Beefeater', stock:10, price:8000,foto:'https://petitecave.com.ar/wp-content/uploads/2021/07/beefeate.r.png', detalle:'La Ginebra Beefeater es una ginebra premium de tipo London dry, elaborada por Beefeater, en el corazón de Londres. Una ginebra fresca, pura y afrutada que le sorprenderá. Actualmente ubicada en Kennington, el sur de Londres la destilería Beefeater produce una de las ginebras modernas más audaces.'},
+  {id:'4', categoria: 'destilado', name:'Absolut', stock:15, price:5800,foto:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/786/803/products/absolut_vodka1-e9520d90c751438b4c16275286882583-640-0.jpg', detalle:'Absolut es, de hecho, tan puro como puede ser el vodka. Aún así, la pureza tiene un sabor: rico, con cuerpo y complejo, pero suave y maduro con el carácter distintivo del grano de trigo, seguido de un toque a frutas secas. Los ingredientes principales de Absolut Vodka son agua y trigo de invierno.'},
+  {id:'5', categoria: 'licor', name:'Cynar Combo', stock:60, price:8400,foto:'https://http2.mlstatic.com/D_NQ_NP_894359-MLA52678745459_122022-O.jpg', detalle:'El Cynar es un aperitivo que se elabora a partir de alcachofas y nueve plantas diferentes que se mantienen en secreto en la casa en que se producen. Aunque puede consumirse puro, el Cynar también se puede mezclar en el área de la coctelería junto con otros ingredientes muy variados, frecuentemente con jugo de naranja.'},
+]
+
+export const mFetch = () => {
+  return new Promise((res,rej)=>{
+    setTimeout(()=>{
+      res(productos)
+    },500)
+  })
+}

@@ -2,10 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
     color: white;
-    position: fixed;
     right: 6rem;
-    top: .5rem;
+    top: .9rem;
     background-color: rgb(186, 186, 186);
     padding:.3rem;
     border-radius: .5rem;

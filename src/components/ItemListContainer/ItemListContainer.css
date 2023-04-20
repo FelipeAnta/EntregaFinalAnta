@@ -1,0 +1,14 @@
+.container_card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.container_item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
