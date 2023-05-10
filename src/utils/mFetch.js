@@ -7,8 +7,8 @@ let productos =[
   {id:'5', categoria: 'licor', name:'Cynar Combo', stock:60, price:8400,foto:'https://http2.mlstatic.com/D_NQ_NP_894359-MLA52678745459_122022-O.jpg', detalle:'El Cynar es un aperitivo que se elabora a partir de alcachofas y nueve plantas diferentes que se mantienen en secreto en la casa en que se producen. Aunque puede consumirse puro, el Cynar también se puede mezclar en el área de la coctelería junto con otros ingredientes muy variados, frecuentemente con jugo de naranja.'},
 ]
 
-export const mFetch = () => {
-  return new Promise((res,rej)=>{
+export const mFetch = (id) => {
+  return new Promise((res,err)=>{
     setTimeout(()=>{
       res(productos)
     },500)
