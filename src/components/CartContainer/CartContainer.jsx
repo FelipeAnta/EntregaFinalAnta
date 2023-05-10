@@ -3,30 +3,31 @@ import { useCartContext } from '../../context/CartContext'
 import './CartContainer.css'
 import { Link } from 'react-router-dom'
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
+import Formulario from '../Formulario/Formulario'
 
 const CartContainer = () => {
 
-  const [dataForm, setDataForm] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    mensaje: ''
-  })
+  // const [dataForm, setDataForm] = useState({
+  //   name: '',
+  //   phone: '',
+  //   email: '',
+  //   mensaje: ''
+  // })
   const { cartList, vaciarCarrito, totalPrice, removeFromCart, decrementProduct, incrementProduct } = useCartContext()
 
-  const generarOrden = (evt) => {
-    evt.preventDefault()
+  // const generarOrden = (evt) => {
+  //   evt.preventDefault()
 
-    const order = {}
-    order.buyer = dataForm
-    order.items = cartList.map(({ name, id, price, cantidad }) => ({ id, name, price, cantidad }))
-    order.total = totalPrice;
+  //   const order = {}
+  //   order.buyer = dataForm
+  //   order.items = cartList.map(({ name, id, price, cantidad }) => ({ id, name, price, cantidad }))
+  //   order.total = totalPrice;
 
-    const dbFirestore = getFirestore()
-    const ordersCollection = collection(dbFirestore, 'orders')
+  //   const dbFirestore = getFirestore()
+  //   const ordersCollection = collection(dbFirestore, 'orders')
 
-    addDoc(ordersCollection, order)
-      .then(resp => console.log(resp))
+  //   addDoc(ordersCollection, order)
+  //     .then(resp => console.log(resp))
     // //actualizar update
     // const queryDoc = doc(dbFirestore, 'productos', '0n7Y6vcO9tRjcgG5QdUm')
     // updateDoc(queryDoc, {stock: 120})
@@ -35,16 +36,26 @@ const CartContainer = () => {
     // //borrado logico
     // updateDoc(queryDoc, {isActive: false})
     // .finally(()=> 'finalizo la actualizacion')
+  // }
+  // const handleOnChange = (evt) => {
+  //   console.log('nombre del input', evt.target.name)
+  //   console.log('nombre del valor ', evt.target.value)
+  //   setDataForm({
+  //     ...dataForm,
+  //     [evt.target.name]: evt.target.value
+  //   })
+  // }
+  // console.log(dataForm)
+
+  if (cartList.length === 0 && totalPrice === 0) {
+    return (
+      <div className='cart-vacio'>
+        <p>El carrito está vacío</p>
+        <Link to={'/'} className="btn btn-outline-secondary">Volver al listado</Link>
+      </div>
+    )
   }
-  const handleOnChange = (evt) => {
-    console.log('nombre del input', evt.target.name)
-    console.log('nombre del valor ', evt.target.value)
-    setDataForm({
-      ...dataForm,
-      [evt.target.name]: evt.target.value
-    })
-  }
-  console.log(dataForm)
+
   return (
     <div className='card-cart'>
       {cartList.map(prod => (
@@ -83,7 +94,7 @@ const CartContainer = () => {
         <Link to={'/'} className="btn btn-outline-secondary">Volver al listado</Link>
       </div>
 
-      <form onSubmit={generarOrden} className="form-container">
+      {/* <form onSubmit={generarOrden} className="form-container">
         <div className="form-section">
           <label htmlFor="name">Nombre:</label>
           <input
@@ -129,7 +140,9 @@ const CartContainer = () => {
         </div>
 
         <button className="btn btn-outline-success submit-button">Generar orden</button>
-      </form>
+      </form> */}
+
+      <Formulario cartList={cartList} totalPrice={totalPrice}/>
     </div>
   )
 }

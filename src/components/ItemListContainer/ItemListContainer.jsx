@@ -36,20 +36,20 @@ const ItemListContainer = (props) => {
     const queryCollection = collection(dbFirestore, 'productos')
     if(!cid) {
       getDocs(queryCollection)
-            .then(resultado=>{
+            .then(resultado=>
               setProductos(resultado.docs.map(productos => ({id: productos.id, ...productos.data()})))
-            })
+            )
             .catch(error=>console.log(error))
             .finally(()=>setIsLoading(false))
     }else{
       const queryCollectionFiltered = query(
         queryCollection,
-        where('price','>', 1500)
+        where('categoria','==', cid)
       )
       getDocs(queryCollectionFiltered)
-            .then(resultado=>{
+            .then(resultado=>
               setProductos(resultado.docs.map(productos => ({id: productos.id, ...productos.data()})))
-            })
+            )
             .catch(error=>console.log(error))
             .finally(()=>setIsLoading(false))
     }

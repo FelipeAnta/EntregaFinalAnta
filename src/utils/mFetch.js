@@ -11,6 +11,6 @@ export const mFetch = (id) => {
   return new Promise((res,err)=>{
     setTimeout(()=>{
       res(productos)
-    },500)
+    },1000)
   })
 }

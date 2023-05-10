@@ -7,10 +7,12 @@ import { formWhitValidation } from './formWhitValidation'
 
 const FormWhitValidation = formWhitValidation(Form)
 
-const Formulario = () => {
+const Formulario = ({ cartList, totalPrice }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        phone: '',
+        message: ''
     })
     const handleOnChange = (evt) =>{
         setFormData({
@@ -18,8 +20,11 @@ const Formulario = () => {
             [evt.target.name]: evt.target.value
         })
     }
+    
     return (   
-        <FormWhitValidation formData={formData} handleOnChange={handleOnChange}/>     
+        <div>
+            <FormWhitValidation formData={formData} handleOnChange={handleOnChange} setFormData={setFormData} cartList={cartList} totalPrice={totalPrice}/>    
+        </div>
   )
 }
 

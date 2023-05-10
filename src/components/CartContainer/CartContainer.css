@@ -82,3 +82,25 @@ input{
     border: .5px solid #b0b0b0;
     border-radius: 10px;
 }
+
+.cart-vacio{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    width: fit-content;
+    margin: 0 auto;
+    box-shadow: 8px 8px 70px rgb(158, 158, 158);
+    padding: 30px;
+    margin-top: 100px;
+    border-radius: 20px;
+}
+
+.cart-vacio p {
+    font-size: 30px;
+    color: rgb(111, 111, 111);
+    border: .5px solid #b0b0b0;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}

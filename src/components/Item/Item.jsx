@@ -3,9 +3,9 @@ import"./Item.css"
 import { Link } from 'react-router-dom'
 const Item = (producto) => {
   return (
-    <div className='col-lg-2 col-sm-10 m-10' >
+    <div className='card-main' >
       <div key={producto.id} className='card w-20'> 
-        <img src={producto.foto} className='card-img-top' alt="imagen-card" />
+        <img src={producto.foto} className='card-img' alt="imagen-card" />
         <div className='card-body'>
           <h6 className='name-card'>{producto.name}</h6>
           <div className='info'>

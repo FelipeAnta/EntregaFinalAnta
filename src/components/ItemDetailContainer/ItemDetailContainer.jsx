@@ -21,9 +21,9 @@ const ItemDetailContainer = () => {
   })
 
   return (
-    <Container fluid>
-      <ItemDetail productos = {productos}/>
-    </Container>
+      <Container fluid>
+        <ItemDetail productos = {productos}/>
+      </Container>
   )
 }
 

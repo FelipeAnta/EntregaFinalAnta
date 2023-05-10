@@ -1,0 +1,24 @@
+.form-container{
+    height: 10px;
+}
+.form-section {
+    margin-bottom: 50px;
+}
+
+.form-section label {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.form-section input {
+    padding: 5px;
+    width: 200px;
+}
+
+.submit-button {
+    margin-top: 10px;
+}
+input{
+    border: .5px solid #b0b0b0;
+    border-radius: 10px;
+}
