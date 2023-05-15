@@ -16,6 +16,10 @@ export const formWhitValidation =(WrappedComponent)=>{
                 newErrors.email='El campo email es obligatorio'
                 isValid=false
             }
+            if (props.formData.email !== props.formData.repeatEmail) {
+                newErrors.repeatEmail = 'Los emails no coinciden';
+                isValid = false;
+              }
             if(!props.formData.phone){
                 newErrors.phone='El campo telefono es obligatorio'
                 isValid=false

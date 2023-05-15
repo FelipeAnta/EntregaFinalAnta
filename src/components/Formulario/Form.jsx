@@ -24,6 +24,7 @@ const Form = ({ formData, handleOnChange, errors, validateForm, setFormData, car
         setFormData({
           name: '',
           email: '',
+          repeatEmail: '',
           phone: '',
           message: ''
         });
@@ -54,6 +55,17 @@ const Form = ({ formData, handleOnChange, errors, validateForm, setFormData, car
             <label htmlFor="email">Email:</label>
             <input type="text" name="email" placeholder="Ingrese el email" onChange={handleOnChange} value={formData.email} />
             {errors && errors.email && <span>{errors.email}</span>}
+          </div>
+          <div className="form-section">
+            <label htmlFor="repeatEmail">Repetir email:</label>
+            <input
+              type="text"
+              name="repeatEmail"
+              placeholder="Repita el email"
+              onChange={handleOnChange}
+              value={formData.repeatEmail}
+            />
+            {errors && errors.repeatEmail && <span>{errors.repeatEmail}</span>}
           </div>
           <div className="form-section">
             <label htmlFor="phone">Teléfono:</label>
