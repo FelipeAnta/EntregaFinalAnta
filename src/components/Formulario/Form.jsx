@@ -3,33 +3,37 @@ import './Form.css'
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext';
+import { Alert } from 'react-bootstrap';
 const Form = ({ formData, handleOnChange, errors, validateForm, setFormData, cartList, totalPrice }) => {
   const [orderPlaced, setOrderPlaced] = useState(false);
-  const {vaciarCarrito} = useCartContext()
+  const { vaciarCarrito } = useCartContext()
+  const [orderId, setOrderId] = useState('');
   const handleOnSubmit = async (evt) => {
     evt.preventDefault();
     if (validateForm()) {
-        const order = {
-          buyer: formData,
-          items: cartList.map(({ name, id, price, cantidad }) => ({ id, name, price, cantidad })),
-          total: totalPrice
-        };
+      const order = {
+        buyer: formData,
+        items: cartList.map(({ name, id, price, cantidad }) => ({ id, name, price, cantidad })),
+        total: totalPrice
+      };
 
-        const dbFirestore = getFirestore();
-        const ordersCollection = collection(dbFirestore, 'orders');
+      const dbFirestore = getFirestore();
+      const ordersCollection = collection(dbFirestore, 'orders');
 
-        const docRef = await addDoc(ordersCollection, order);
-        console.log('Orden generada con ID:', docRef.id);
 
-        setFormData({
-          name: '',
-          email: '',
-          repeatEmail: '',
-          phone: '',
-          message: ''
-        });
-        setOrderPlaced(true);
-      }
+      const docRef = await addDoc(ordersCollection, order);
+      console.log('Orden generada con ID:', docRef.id);
+      setOrderId(docRef.id);
+
+      setFormData({
+        name: '',
+        email: '',
+        repeatEmail: '',
+        phone: '',
+        message: ''
+      });
+      setOrderPlaced(true);
+    }
   };
 
   const handleBackToList = () => {
@@ -41,8 +45,12 @@ const Form = ({ formData, handleOnChange, errors, validateForm, setFormData, car
     <div>
       {orderPlaced ? (
         <div className='order-section'>
+          <div className='order-section'>
+            <Alert variant='danger' className='mt-5 w-75 text-center'>*El carrito de arriba corresponde a tu último pedido. Para continuar comprando, presiona "Volver al listado" o "Vaciar tu carrito". Agradecemos tu atención.*</Alert>
+            <Alert variant='success' className='mt-5'>Orden generada con ID: {orderId}</Alert>
+          </div>
           <p className="order-success">Orden exitosa</p>
-          <Link to={'/'} className="btn btn-outline-success" onClick={handleBackToList}>Hacer otra compra</Link>
+          <Link to={'/'} className="btn btn-outline-success" onClick={handleBackToList}>Volver al listado</Link>
         </div>
       ) : (
         <form onSubmit={handleOnSubmit} className="form-container">

@@ -1,6 +1,5 @@
 import { createContext, useContext, useState } from "react";
 
-
 const CartContext = createContext([])
 export const useCartContext = () => useContext(CartContext)
 
@@ -45,7 +44,7 @@ export const CartContextProvider = ({ children }) => {
         setTotalPrice(totalPrice - productToUpdate.price * amount);
         setCartList(updatedCartList);
     };
-    
+
     const vaciarCarrito = () => {
         setCartList([])
         setTotalPrice(0);

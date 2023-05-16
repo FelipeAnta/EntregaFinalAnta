@@ -1,4 +1,4 @@
-import {Navigate, Route, BrowserRouter as Router, Routes} from 'react-router-dom'
+import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar/NavBar';
@@ -12,29 +12,26 @@ import { CartContextProvider } from './context/CartContext';
 
 function App() {
   const [productos, setProductos] = useState([])
-  useEffect(()=>{
+  useEffect(() => {
     mFetch()
-    .then(resultado=>{
-      setProductos(resultado)
-    })
+      .then(resultado => {
+        setProductos(resultado)
+      })
   })
   return (
     <CartContextProvider>
-
       <div
-      
-
       >
         <Router>
-          <NavBar/>
+          <NavBar />
           <Routes className="App">
-            <Route path='/' exact element={<ItemListContainer />}/>
-            <Route path='/categoria/:cid' exact element={<ItemListContainer/>}/>
+            <Route path='/' exact element={<ItemListContainer />} />
+            <Route path='/categoria/:cid' exact element={<ItemListContainer />} />
 
-            <Route path='/detail/:pid' element={<ItemDetailContainer productos={productos}/>}/>
-            <Route path='/cart' element={<CartContainer/>}/>
-            <Route path='/form' element={<Formulario/>}/>
-            <Route path='*' element={<Navigate to='/'/>}/> 
+            <Route path='/detail/:pid' element={<ItemDetailContainer productos={productos} />} />
+            <Route path='/cart' element={<CartContainer />} />
+            <Route path='/form' element={<Formulario />} />
+            <Route path='*' element={<Navigate to='/' />} />
           </Routes>
         </Router>
       </div>

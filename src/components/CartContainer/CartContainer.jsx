@@ -14,7 +14,6 @@ const CartContainer = () => {
       </div>
     )
   }
-
   return (
     <div className='card-cart'>
       {cartList.map(prod => (
@@ -52,7 +51,7 @@ const CartContainer = () => {
         <button onClick={vaciarCarrito} className='btn btn-outline-danger'>Vaciar Carrito</button>
         <Link to={'/'} className="btn btn-outline-secondary">Volver al listado</Link>
       </div>
-      <Formulario cartList={cartList} totalPrice={totalPrice}/>
+      <Formulario cartList={cartList} totalPrice={totalPrice} />
     </div>
   )
 }
