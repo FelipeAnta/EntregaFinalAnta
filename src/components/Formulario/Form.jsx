@@ -22,7 +22,6 @@ const Form = ({ formData, handleOnChange, errors, validateForm, setFormData, car
 
 
       const docRef = await addDoc(ordersCollection, order);
-      console.log('Orden generada con ID:', docRef.id);
       setOrderId(docRef.id);
 
       setFormData({
