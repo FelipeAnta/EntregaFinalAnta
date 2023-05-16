@@ -45,12 +45,12 @@ const Form = ({ formData, handleOnChange, errors, validateForm, setFormData, car
     <div>
       {orderPlaced ? (
         <div className='order-section'>
-          <div className='order-section'>
-            <Alert variant='danger' className='mt-5 w-75 text-center'>*El carrito de arriba corresponde a tu último pedido. Para continuar comprando, presiona "Volver al listado" o "Vaciar tu carrito". Agradecemos tu atención.*</Alert>
+          <div className='order-section mt-5'>
+          <Link to={'/'} className="btn btn-outline-success" onClick={handleBackToList}>Quiero seguir comprando</Link>
+            <Alert variant='danger' className='mt-3 w-75 text-center'>*El carrito de arriba corresponde a tu último pedido. Para continuar comprando, presiona "Quiero seguir comprando" o "Vaciar tu carrito". Agradecemos tu atención.*</Alert>
             <Alert variant='success' className='mt-5'>Orden generada con ID: {orderId}</Alert>
           </div>
           <p className="order-success">Orden exitosa</p>
-          <Link to={'/'} className="btn btn-outline-success" onClick={handleBackToList}>Volver al listado</Link>
         </div>
       ) : (
         <form onSubmit={handleOnSubmit} className="form-container">
